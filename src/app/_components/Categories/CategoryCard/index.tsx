@@ -7,6 +7,12 @@ import { useFilter } from '../../../_providers/Filter'
 
 import classes from './index.module.scss'
 
+// Define Media type here if it's not imported from payload-types
+type Media = {
+  url: string
+  alt?: string
+}
+
 type CategoryCardProps = {
   category: Category
 }
