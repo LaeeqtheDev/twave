@@ -1,0 +1,8 @@
+<svg width="50px" height="20px" viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Wave Path -->
+  <path d="M10 40C20 50 30 60 45 60C60 60 65 45 80 45C95 45 100 60 110 60C120 60 130 45 145 45C160 45 165 60 180 60C195 60 200 50 210 40" 
+        stroke="black" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- ThreadWave Text (Positioned next to the wave) -->
+  <text x="220" y="60" font-family="Verdana" font-size="30" fill="black">ThreadWave</text>
+</svg>

@@ -10,7 +10,7 @@ export const priceUpdated: StripeWebhookHandler<{
 }> = async args => {
   const { event, payload, stripe } = args
 
-  const stripeProduct = event.data.object.product
+  const stripeProduct = event.data.QAobject.product
   const stripeProductID = typeof stripeProduct === 'string' ? stripeProduct : stripeProduct.id
 
   if (logs)
