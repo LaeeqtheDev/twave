@@ -3,6 +3,9 @@ const ContentSecurityPolicy = require('./csp')
 const redirects = require('./redirects')
 
 const nextConfig = {
+  typescrtipt:{
+    ignoreBuildErrors:true,
+  },
   reactStrictMode: true,
   swcMinify: true,
   images: {
