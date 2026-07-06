@@ -1,12 +1,12 @@
 import type { Page } from '../payload-types'
 
 export const productsPage: Omit<Page, 'updatedAt' | 'createdAt' | 'id'> = {
-  title: 'Products',
+  title: 'Shop All',
   slug: 'products',
   _status: 'published',
   meta: {
-    title: 'Shop all products',
-    description: 'Shop everything from goods and services to digital assets and gated content.',
+    title: 'Shop All — ROOTS',
+    description: 'Browse the full ROOTS collection: considered essentials for everyday wear.',
   },
   hero: {
     type: 'lowImpact',
@@ -16,7 +16,7 @@ export const productsPage: Omit<Page, 'updatedAt' | 'createdAt' | 'id'> = {
         type: 'h1',
         children: [
           {
-            text: 'All products',
+            text: 'Shop All',
           },
         ],
       },
@@ -24,7 +24,7 @@ export const productsPage: Omit<Page, 'updatedAt' | 'createdAt' | 'id'> = {
         type: 'p',
         children: [
           {
-            text: 'This page displays all or some of the products of your store ranging from goods and services to digital assets and gated content. Each product is complete with a dynamic page layout builder for a completely custom shopping experience that is under your full control.',
+            text: 'Considered essentials for everyday wear. Filter by category or browse the full collection below.',
           },
         ],
       },
@@ -39,22 +39,14 @@ export const productsPage: Omit<Page, 'updatedAt' | 'createdAt' | 'id'> = {
           type: 'h4',
           children: [
             {
-              text: 'All products',
-            },
-          ],
-        },
-        {
-          type: 'p',
-          children: [
-            {
-              text: 'The products below are displayed in an "Archive" layout building block which is an extremely powerful way to display docs on a page. It can be auto-populated by collection, filtered by category, and much more.',
+              text: 'All Products',
             },
           ],
         },
       ],
       populateBy: 'collection',
       relationTo: 'products',
-      limit: 10,
+      limit: 24,
       categories: [],
     },
   ],

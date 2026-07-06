@@ -5,17 +5,17 @@ export const home: Partial<Page> = {
   slug: 'home',
   _status: 'published',
   meta: {
-    title: 'Payload E-Commerce Template',
-    description: 'An open-source e-commerce store built with Payload and Next.js.',
-    image: '{{PRODUCT1_IMAGE}}',
+    title: 'ROOTS — Back to Basics',
+    description:
+      'Timeless essentials, made to last. Shop ROOTS apparel: honest materials, considered design, no trend cycles.',
   },
   hero: {
-    type: 'highImpact',
+    type: 'lowImpact',
     richText: [
       {
         children: [
           {
-            text: 'Payload E-Commerce Store',
+            text: 'Back to Basics',
           },
         ],
         type: 'h1',
@@ -23,34 +23,7 @@ export const home: Partial<Page> = {
       {
         children: [
           {
-            text: 'Welcome to your store! ',
-          },
-          {
-            type: 'link',
-            linkType: 'custom',
-            url: '/admin',
-            children: [
-              {
-                text: 'Visit the admin dashboard',
-              },
-            ],
-          },
-          {
-            text: " to begin managing this site's content. The code for this template is completely open-source and can be found ",
-          },
-          {
-            type: 'link',
-            linkType: 'custom',
-            url: 'https://github.com/payloadcms/payload/tree/main/templates/ecommerce',
-            newTab: true,
-            children: [
-              {
-                text: 'here',
-              },
-            ],
-          },
-          {
-            text: '.',
+            text: 'Clean lines. Honest materials. Clothing built for everyday life, not the next trend cycle.',
           },
         ],
         type: 'large-body',
@@ -65,26 +38,15 @@ export const home: Partial<Page> = {
             relationTo: 'pages',
             value: '{{PRODUCTS_PAGE_ID}}',
           },
-          label: 'Shop now',
+          label: 'Shop New Arrivals',
           url: '',
         },
       },
-      {
-        link: {
-          type: 'custom',
-          appearance: 'secondary',
-          reference: null,
-          label: 'View on GitHub',
-          url: 'https://github.com/payloadcms/payload/tree/main/templates/ecommerce',
-          newTab: true,
-        },
-      },
     ],
-    media: '{{PRODUCT1_IMAGE}}',
   },
   layout: [
     {
-      blockName: 'Content Block',
+      blockName: 'Why Roots',
       blockType: 'content',
       columns: [
         {
@@ -93,18 +55,11 @@ export const home: Partial<Page> = {
             {
               children: [
                 {
-                  text: 'Core Features',
+                  text: 'Why ROOTS',
                 },
               ],
               type: 'h2',
             },
-            {
-              children: [
-                {
-                  text: '',
-                },
-              ],
-            },
           ],
         },
         {
@@ -113,7 +68,7 @@ export const home: Partial<Page> = {
             {
               children: [
                 {
-                  text: 'Admin Dashboard',
+                  text: 'Honest Materials',
                 },
               ],
               type: 'h3',
@@ -121,20 +76,7 @@ export const home: Partial<Page> = {
             {
               children: [
                 {
-                  text: "Manage this site's users, pages, products, and more from the ",
-                },
-                {
-                  type: 'link',
-                  linkType: 'custom',
-                  url: '/admin',
-                  children: [
-                    {
-                      text: 'admin dashboard',
-                    },
-                  ],
-                },
-                {
-                  text: '.',
+                  text: 'Natural fibers and durable construction. Nothing synthetic pretending to be something it is not.',
                 },
               ],
             },
@@ -152,7 +94,7 @@ export const home: Partial<Page> = {
             {
               children: [
                 {
-                  text: 'Authentication',
+                  text: 'Considered Design',
                 },
               ],
               type: 'h3',
@@ -160,33 +102,7 @@ export const home: Partial<Page> = {
             {
               children: [
                 {
-                  text: 'User ',
-                },
-                {
-                  type: 'link',
-                  linkType: 'custom',
-                  url: '/login',
-                  children: [
-                    {
-                      text: 'login',
-                    },
-                  ],
-                },
-                {
-                  text: ' and ',
-                },
-                {
-                  type: 'link',
-                  linkType: 'custom',
-                  url: '/create-account',
-                  children: [
-                    {
-                      text: 'create account',
-                    },
-                  ],
-                },
-                {
-                  text: ' flows are complete with email verification and password reset.',
+                  text: 'Timeless silhouettes over fast trends. Pieces designed to be worn for years, not seasons.',
                 },
               ],
             },
@@ -204,7 +120,7 @@ export const home: Partial<Page> = {
             {
               children: [
                 {
-                  text: 'Customer Accounts',
+                  text: 'Easy Returns',
                 },
               ],
               type: 'h3',
@@ -212,203 +128,7 @@ export const home: Partial<Page> = {
             {
               children: [
                 {
-                  text: 'Customers can ',
-                },
-                {
-                  type: 'link',
-                  linkType: 'custom',
-                  url: '/account',
-                  children: [
-                    {
-                      text: 'manage their account',
-                    },
-                  ],
-                },
-                {
-                  text: ', ',
-                },
-                {
-                  type: 'link',
-                  linkType: 'custom',
-                  url: '/orders',
-                  children: [
-                    {
-                      text: 'view their order history',
-                    },
-                  ],
-                },
-                {
-                  text: ', and more without leaving the site.',
-                },
-              ],
-            },
-          ],
-          enableLink: false,
-          link: {
-            reference: null,
-            url: '',
-            label: '',
-          },
-        },
-
-        {
-          size: 'oneThird',
-          richText: [
-            {
-              children: [
-                {
-                  text: 'Paywall',
-                },
-              ],
-              type: 'h3',
-            },
-            {
-              children: [
-                {
-                  text: 'Easily gate digital content behind a paywall or require users to be logged in to access it.',
-                },
-              ],
-            },
-          ],
-          enableLink: false,
-          link: {
-            reference: null,
-            url: '',
-            label: '',
-          },
-        },
-        {
-          size: 'oneThird',
-          richText: [
-            {
-              children: [
-                {
-                  text: 'Shopping Cart',
-                },
-              ],
-              type: 'h3',
-            },
-            {
-              children: [
-                {
-                  text: 'Shopping carts persist between sessions, can be saved for later, and are accessible from any device.',
-                },
-              ],
-            },
-          ],
-          enableLink: false,
-          link: {
-            reference: null,
-            url: '',
-            label: '',
-          },
-        },
-        {
-          size: 'oneThird',
-          richText: [
-            {
-              children: [
-                {
-                  text: 'Checkout',
-                },
-              ],
-              type: 'h3',
-            },
-            {
-              children: [
-                {
-                  text: 'Secure in-app checkout powered by Stripe means your customers never have to leave your site.',
-                },
-              ],
-            },
-          ],
-          enableLink: false,
-          link: {
-            reference: null,
-            url: '',
-            label: '',
-          },
-        },
-        {
-          size: 'oneThird',
-          richText: [
-            {
-              children: [
-                {
-                  text: 'Page Builder',
-                },
-              ],
-              type: 'h3',
-            },
-            {
-              children: [
-                {
-                  text: 'Custom page builder allows you to create unique page and product layouts for any type of content.',
-                },
-              ],
-            },
-          ],
-          enableLink: false,
-          link: {
-            reference: null,
-            url: '',
-            label: '',
-          },
-        },
-        {
-          size: 'oneThird',
-          richText: [
-            {
-              children: [
-                {
-                  text: 'SEO',
-                },
-              ],
-              type: 'h3',
-            },
-            {
-              children: [
-                {
-                  text: 'Editors have complete control over SEO data and site content directly from the ',
-                },
-                {
-                  type: 'link',
-                  linkType: 'custom',
-                  url: '/admin',
-                  children: [
-                    {
-                      text: 'admin dashboard',
-                    },
-                  ],
-                },
-                {
-                  text: '.',
-                },
-              ],
-            },
-          ],
-          enableLink: false,
-          link: {
-            reference: null,
-            url: '',
-            label: '',
-          },
-        },
-        {
-          size: 'oneThird',
-          richText: [
-            {
-              children: [
-                {
-                  text: 'Dark Mode',
-                },
-              ],
-              type: 'h3',
-            },
-            {
-              children: [
-                {
-                  text: 'Users will experience this site in their preferred color scheme, and each block can be inverted.',
+                  text: 'Free shipping on orders above $150 and 30 days to exchange if something is not quite right.',
                 },
               ],
             },
@@ -423,20 +143,14 @@ export const home: Partial<Page> = {
       ],
     },
     {
-      blockType: 'mediaBlock',
-      blockName: 'Media Block',
-      position: 'default',
-      media: '{{PRODUCT2_IMAGE}}',
-    },
-    {
-      blockName: 'Archive Block',
+      blockName: 'New Arrivals',
       blockType: 'archive',
       introContent: [
         {
           type: 'h4',
           children: [
             {
-              text: 'Recent Products',
+              text: 'New Arrivals',
             },
           ],
         },
@@ -444,7 +158,7 @@ export const home: Partial<Page> = {
           type: 'p',
           children: [
             {
-              text: 'The products below are displayed in an "Archive" layout building block which is an extremely powerful way to display documents on a page. It can be auto-populated by collection or by category, or products can be individually selected. Pagination controls will automatically appear if the number of results exceeds the number of items per page.',
+              text: 'The latest additions to the collection.',
             },
           ],
         },
@@ -460,7 +174,7 @@ export const home: Partial<Page> = {
         {
           children: [
             {
-              text: 'Shop now',
+              text: 'Explore the full collection',
             },
           ],
           type: 'h4',
@@ -468,20 +182,7 @@ export const home: Partial<Page> = {
         {
           children: [
             {
-              text: 'This is a custom layout building block ',
-            },
-            {
-              type: 'link',
-              linkType: 'custom',
-              url: '/admin',
-              children: [
-                {
-                  text: 'configured in the admin dashboard',
-                },
-              ],
-            },
-            {
-              text: '.',
+              text: 'Considered essentials for everyday wear, in every category.',
             },
           ],
         },
@@ -491,7 +192,7 @@ export const home: Partial<Page> = {
           link: {
             type: 'reference',
             url: '',
-            label: 'Shop now',
+            label: 'Shop All',
             appearance: 'primary',
             reference: {
               value: '{{PRODUCTS_PAGE_ID}}',

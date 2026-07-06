@@ -4,12 +4,6 @@ import type { Payload } from 'payload'
 
 import { cartPage } from './cart-page'
 import { home } from './home'
-import { image1 } from './image-1'
-import { image2 } from './image-2'
-import { image3 } from './image-3'
-import { product1 } from './product-1'
-import { product2 } from './product-2'
-import { product3 } from './product-3'
 import { productsPage } from './products-page'
 
 const collections = ['categories', 'media', 'pages', 'products']
@@ -52,115 +46,34 @@ export const seed = async (payload: Payload): Promise<void> => {
     ), // eslint-disable-line function-paren-newline
   ])
 
-  payload.logger.info(`— Seeding media...`)
-
-  const [image1Doc, image2Doc, image3Doc] = await Promise.all([
-    await payload.create({
-      collection: 'media',
-      filePath: path.resolve(__dirname, 'image-1.jpg'),
-      data: image1,
-    }),
-    await payload.create({
-      collection: 'media',
-      filePath: path.resolve(__dirname, 'image-2.jpg'),
-      data: image2,
-    }),
-    await payload.create({
-      collection: 'media',
-      filePath: path.resolve(__dirname, 'image-3.jpg'),
-      data: image3,
-    }),
-  ])
-
-  let image1ID = image1Doc.id
-  let image2ID = image2Doc.id
-  let image3ID = image3Doc.id
-
-  if (payload.db.defaultIDType === 'text') {
-    image1ID = `"${image1ID}"`
-    image2ID = `"${image2ID}"`
-    image3ID = `"${image3ID}"`
-  }
-
   payload.logger.info(`— Seeding categories...`)
 
-  const [apparelCategory, ebooksCategory, coursesCategory] = await Promise.all([
-    await payload.create({
-      collection: 'categories',
-      data: {
-        title: 'Apparel',
-      },
-    }),
-    await payload.create({
-      collection: 'categories',
-      data: {
-        title: 'E-books',
-      },
-    }),
-    await payload.create({
-      collection: 'categories',
-      data: {
-        title: 'Online courses',
-      },
-    }),
-  ])
-
-  payload.logger.info(`— Seeding products...`)
-
-  // Do not create product with `Promise.all` because we want the products to be created in order
-  // This way we can sort them by `createdAt` or `publishedOn` and they will be in the expected order
-  const product1Doc = await payload.create({
-    collection: 'products',
-    data: JSON.parse(
-      JSON.stringify({ ...product1, categories: [apparelCategory.id] }).replace(
-        /"\{\{PRODUCT_IMAGE\}\}"/g,
-        image1ID,
-      ),
-    ),
-  })
-
-  const product2Doc = await payload.create({
-    collection: 'products',
-    data: JSON.parse(
-      JSON.stringify({ ...product2, categories: [ebooksCategory.id] }).replace(
-        /"\{\{PRODUCT_IMAGE\}\}"/g,
-        image2ID,
-      ),
-    ),
-  })
-
-  const product3Doc = await payload.create({
-    collection: 'products',
-    data: JSON.parse(
-      JSON.stringify({ ...product3, categories: [coursesCategory.id] }).replace(
-        /"\{\{PRODUCT_IMAGE\}\}"/g,
-        image3ID,
-      ),
-    ),
-  })
-
-  // update each product with related products
-
+  // Real apparel categories for the ROOTS storefront.
+  // No products are seeded here - add your real products (with your own
+  // photos) through the admin dashboard and assign them to these categories.
   await Promise.all([
-    await payload.update({
-      collection: 'products',
-      id: product1Doc.id,
+    payload.create({
+      collection: 'categories',
       data: {
-        relatedProducts: [product2Doc.id, product3Doc.id],
+        title: 'New Arrivals',
       },
     }),
-    await payload.update({
-      collection: 'products',
-      id: product2Doc.id,
+    payload.create({
+      collection: 'categories',
       data: {
-        relatedProducts: [product1Doc.id, product3Doc.id],
+        title: 'T-Shirts & Tops',
       },
     }),
-    await payload.update({
-      collection: 'products',
-      id: product3Doc.id,
+    payload.create({
+      collection: 'categories',
       data: {
-        relatedProducts: [product1Doc.id, product2Doc.id],
+        title: 'Outerwear',
+      },
+    }),
+    payload.create({
+      collection: 'categories',
+      data: {
+        title: 'Bottoms',
       },
     }),
   ])
@@ -182,12 +95,7 @@ export const seed = async (payload: Payload): Promise<void> => {
 
   await payload.create({
     collection: 'pages',
-    data: JSON.parse(
-      JSON.stringify(home)
-        .replace(/"\{\{PRODUCT1_IMAGE\}\}"/g, image1ID)
-        .replace(/"\{\{PRODUCT2_IMAGE\}\}"/g, image2ID)
-        .replace(/"\{\{PRODUCTS_PAGE_ID\}\}"/g, productsPageID),
-    ),
+    data: JSON.parse(JSON.stringify(home).replace(/"\{\{PRODUCTS_PAGE_ID\}\}"/g, productsPageID)),
   })
 
   payload.logger.info(`— Seeding cart page...`)
@@ -225,6 +133,16 @@ export const seed = async (payload: Payload): Promise<void> => {
           },
         },
       ],
+    },
+  })
+
+  payload.logger.info(`— Seeding footer...`)
+
+  await payload.updateGlobal({
+    slug: 'footer',
+    data: {
+      copyright: `© ${new Date().getFullYear()} ROOTS. All rights reserved.`,
+      navItems: [],
     },
   })
 

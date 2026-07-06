@@ -18,10 +18,19 @@
   max-height: 884px;
   display: flex;
   align-items: center;
+  position: relative;
 
   background-size: cover;
   background-position: revert;
   background-repeat: no-repeat;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.15) 40%, rgba(0, 0, 0, 0.45) 100%);
+    pointer-events: none;
+  }
 
   @include small-break {
     background-size: cover;
@@ -35,6 +44,9 @@
   justify-content: center;
   padding: 15% var(--gutter-h);
   width: 100%;
+  color: #fff;
+  position: relative;
+  z-index: 1;
 
   @include mid-break {
     padding: 10% 30px;
@@ -42,6 +54,10 @@
 
   @include small-break {
     padding: 50px 30px;
+  }
+
+  h1, h2, h3, p {
+    color: #fff;
   }
 
   h2 {
@@ -85,5 +101,13 @@
 
   & > * {
     margin: calc(var(--base) / 2);
+  }
+
+  // Secondary button (outlined) is invisible on a dark photo by default
+  // (dark border + inherited dark text) - force it light here since this
+  // hero always renders over a photo background.
+  :global(.appearance--secondary) {
+    color: #fff;
+    box-shadow: inset 0 0 0 1px #fff;
   }
 }
